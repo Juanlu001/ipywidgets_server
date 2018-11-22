@@ -187,7 +187,8 @@ class WidgetsServer(Application):
         app = tornado.web.Application(
             handlers,
             kernel_manager=kernel_manager,
-            kernel_spec_manager=kernel_spec_manager
+            kernel_spec_manager=kernel_spec_manager,
+            allow_remote_access=True,
         )
         app.listen(self.port)
         self.log.info(f'Ipywidgets server listening on port {self.port}.')
